@@ -4,7 +4,7 @@ export const isFibonacci = async (num: number) => {
 }
 
 let cached = [] as number[]
-const getFibonacciNumbers = async (count = 1000) => {
+export const getFibonacciNumbers = async (count = 1000) => {
   if (cached.length) {
     return cached
   }

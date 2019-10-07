@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NumberCruncher.vue renders body when frequency selected 1`] = `
+<div class="number__cruncher">
+  <timer-modal-stub value="5"></timer-modal-stub>
+  <div class="number__cruncher-body">
+    <h3>Please enter the first number</h3>
+    <div class="number__cruncher-input"><input numeric-only="" type="tel"> <button class="">Add Number</button></div> <textarea readonly="readonly" class="number__cruncher-log"></textarea>
+    <div class="number__cruncher-options">
+      <div class="number__cruncher-countdown">
+        <h4 style="display: none;">Seconds to next output: 0.005</h4>
+        <h4 style="display: none;">Thanks for playing!</h4>
+      </div>
+      <div class="number__cruncher-buttons"><button style="display: none;">Resume</button> <button>Quit</button></div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimerModal.vue renders props.value when passed 1`] = `
+<modal-stub name="timer-modal" delay="0" adaptive="true" overlaytransition="overlay-fade" classes="v--modal" minwidth="0" minheight="0" maxwidth="Infinity" maxheight="Infinity" width="600" height="300" pivotx="0.5" pivoty="0.5">
+  <div class="timer__modal-body">
+    <h4>Please input the number of time in seconds between emitting numbers and their frequency</h4> <input numeric-only="" type="tel"> <button class="ok">Continue</button>
+  </div>
+</modal-stub>
+`;
