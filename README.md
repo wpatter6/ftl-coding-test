@@ -1,6 +1,8 @@
 # ftr-coding-test
 
-This project requires Node.js to be installed
+- This project requires [Node.js](https://nodejs.org) to be installed
+- Clone the repo with `git clone https://github.com/wpatter6/ftl-coding-test.git`
+- Run the following commands to setup and run the project and its tests:
 
 ## Project setup
 
@@ -8,26 +10,14 @@ This project requires Node.js to be installed
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compiles and runs application on localhost
 
 ```
 npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
 ```
 
 ### Run tests
 
 ```
 npm run test
-```
-
-### Lints and fixes files
-
-```
-npm run lint
 ```
