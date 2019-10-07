@@ -3,7 +3,7 @@
     <div class="timer__modal-body">
       <h4>Please input the number of time in seconds between emitting numbers and their frequency</h4>
       <input numeric-only ref="input" type="tel" v-model="selectedValue" />
-      <button class="ok" @click="hide">Continue</button>
+      <button :class="parseInt(selectedValue) > 0 ? 'ok' : ''" @click="selectValue">Continue</button>
     </div>
   </modal>
 </template>
@@ -32,9 +32,11 @@ export default class TimerModal extends Vue {
     }, 100)
   }
 
-  hide() {
-    this.$modal.hide('timer-modal')
-    this.$emit('hide')
+  selectValue() {
+    if (parseInt(selectedValue) > 0) {
+      this.$modal.hide('timer-modal')
+      this.$emit('hide')
+    }
   }
 
   mounted() {
