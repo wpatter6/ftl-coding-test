@@ -1,7 +1,7 @@
 <template>
   <div class="number__cruncher">
     <timer-modal v-model="outputFrequencySeconds" @hide="frequencySelected = true" ref="timerModal"></timer-modal>
-    <div v-show="frequencySelected" class="number__cruncher-body">
+    <div v-if="frequencySelected" class="number__cruncher-body">
       <h3>Please enter the {{numbers.length === 0 ? 'first' : 'next'}} number</h3>
       <div class="number__cruncher-input">
         <input numeric-only type="tel" v-model="nextNumber" />
@@ -108,7 +108,9 @@ export default class NumberCruncher extends Vue {
   }
 
   mounted() {
-    this.$refs.timerModal.show()
+    if (this.$refs.timerModal.show) {
+      this.$refs.timerModal.show()
+    }
   }
 
   quit() {
@@ -116,7 +118,7 @@ export default class NumberCruncher extends Vue {
     setTimeout(() => window.location.reload(), 2000)
   }
 
-  addNumber() {
+  async addNumber() {
     if (this.nextNumber) {
       if (this.numbers.length === 0) {
         this.active = true
@@ -127,7 +129,7 @@ export default class NumberCruncher extends Vue {
       this.numbers.push(nextNumberInt)
       this.nextNumber = ''
 
-      if (isFibonacci(nextNumberInt)) {
+      if (await isFibonacci(nextNumberInt)) {
         this.$nextTick(() => this.addLog('FIB'))
       }
     }

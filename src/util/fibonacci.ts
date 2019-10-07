@@ -1,25 +1,26 @@
-export const isFibonacci = (num: number) => {
+export const isFibonacci = async (num: number) => {
+  const fibonacciNumbers = await getFibonacciNumbers()
   return fibonacciNumbers.includes(num)
 }
 
-const fibonacciNumbers = [] as number[]
-
-const fibonacciSize = 1000
-
-// Set timeout to prevent blocking rendering thread
-setTimeout(() => {
-  let size = fibonacciSize
+let cached = [] as number[]
+const getFibonacciNumbers = async (count = 1000) => {
+  if (cached.length) {
+    return cached
+  }
+  const result = [] as number[]
   let next = 1
   let current = 0
   let temp: number
 
-  while (size > 0) {
-    fibonacciNumbers.push(current)
+  while (count > 0) {
+    result.push(current)
 
     temp = next
     next = next + current
     current = temp
 
-    size--
+    count--
   }
-}, 1)
+  return (cached = result)
+}
