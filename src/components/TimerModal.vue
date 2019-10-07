@@ -33,7 +33,9 @@ export default class TimerModal extends Vue {
   }
 
   selectValue() {
-    if (parseInt(selectedValue) > 0) {
+    const val = parseInt(this.selectedValue, 10)
+    if (val > 0) {
+      this.$emit('input', val)
       this.$modal.hide('timer-modal')
       this.$emit('hide')
     }
@@ -41,11 +43,6 @@ export default class TimerModal extends Vue {
 
   mounted() {
     this.selectedValue = String(this.value)
-  }
-
-  @Watch('selelectedValue')
-  selectedValueChanged(val: string) {
-    this.$emit('input', parseInt(val, 10))
   }
 }
 </script>
